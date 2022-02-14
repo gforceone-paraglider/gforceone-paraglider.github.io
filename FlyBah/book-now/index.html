@@ -304,6 +304,11 @@ Payment Method* <span class="wpcf7-form-control-wrap payment-method"><select nam
 
 
 
+
+
+
+
+
     <div class="container register">
       <div class="row">
         <div class="col-md-12">
@@ -323,7 +328,8 @@ Payment Method* <span class="wpcf7-form-control-wrap payment-method"><select nam
 
 
                   <div class="form-group">
-                    <select class="form-control" id="tandem-location">
+                    <select class="form-control" id="tandem_location">
+                      <option value="">Where would you like to fly tandem? *</option>
                       <option value="KK View (rm280/pax)">KK View (rm280/pax)</option>
                       <option value="Kokol (rm350/pax)">Kokol (rm350/pax)</option>
                       <option value="Ranau (rm250/pax)">Ranau (rm250/pax)</option>
@@ -337,6 +343,67 @@ Payment Method* <span class="wpcf7-form-control-wrap payment-method"><select nam
 
                   <div class="form-group">
                     <input
+                      type="date"
+                      name="Booking Date"
+                      id="booking_date"
+                      class="form-control"
+                      placeholder=""
+                      value=""
+                      required=""
+                    />
+                  </div>
+
+
+
+                  <div class="form-group">
+                    <select class="form-control" id="timeslot">
+                      <option value="">What timeslot would you prefer? *</option>
+                      <option value="10:00AM">10:00AM</option>
+                      <option value="11:00AM">11:00AM</option>
+                      <option value="12:00PM">12:00PM</option>
+                      <option value="01:00PM">01:00PM</option>
+                      <option value="02:00PM">02:00PM</option>
+                      <option value="03:00PM">03:00PM</option>
+                      <option value="04:00PM">04:00PM</option>
+                      <option value="05:00PM">05:00PM</option>
+                    </select>
+                  </div>
+
+
+
+
+                  <div class="form-group">
+                    <input
+                      type="number"
+                      name="No. of Pax"
+                      id="num_pax"
+                      class="form-control"
+                      placeholder="No. of Pax *"
+                      value=""
+                      required=""
+                      min="1"
+                      max="30"
+                    />
+                  </div>
+
+
+                  <div class="form-group">
+                    <input
+                      type="number"
+                      name="No. of Pax Above 90kg"
+                      id="num_pax_above_90"
+                      class="form-control"
+                      placeholder="How many Pax are Above 90kg Max 115kg (add rm50/pax) *"
+                      value=""
+                      required=""
+                      min="0"
+                      max="30"
+                    />
+                  </div>
+
+
+                  <div class="form-group">
+                    <input
                       type="text"
                       name="Name"
                       id="name"
@@ -346,6 +413,9 @@ Payment Method* <span class="wpcf7-form-control-wrap payment-method"><select nam
                       required=""
                     />
                   </div>
+
+
+
                   <div class="form-group">
                     <input
                       type="text"
@@ -357,26 +427,19 @@ Payment Method* <span class="wpcf7-form-control-wrap payment-method"><select nam
                       required=""
                     />
                   </div>
+
+
+
+
                   <div class="form-group">
-                    <input
-                      type="number"
-                      name="Phone"
-                      id="phone"
-                      class="form-control"
-                      placeholder="Your Contact Number *"
-                      value=""
-                      required=""
-                    />
-                  </div>
-                  <div class="form-group">
-                    <select class="form-control" id="service">
-                      <option>Default select</option>
-                      <option>Website Development</option>
-                      <option>Mobile App Development</option>
-                      <option>Web and Mobile Application</option>
+                    <select class="form-control" id="payment_method">
+                      <option value="">Payment Method *</option>
+                      <option value="Bank Transfer">Bank Transfer</option>
+                      <option value="Wire Transfer">Wire Transfer</option>
                     </select>
                   </div>
-                  <div class="form-group">
+
+
                     <input
                       type="submit"
                       name="submit"
@@ -398,21 +461,28 @@ Payment Method* <span class="wpcf7-form-control-wrap payment-method"><select nam
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 -->
 
+
 <script>
 function gotowhatsapp() {
 
-    var name = document.getElementById("tandem-location").value;    
+    var tandem_location = document.getElementById("tandem_location").value;
+    var booking_date = document.getElementById("booking_date").value;
+    var timeslot = document.getElementById("timeslot").value;
+    var num_pax = document.getElementById("num_pax").value;
+    var num_pax_above_90 = document.getElementById("num_pax_above_90").value;
     var name = document.getElementById("name").value;
-    var phone = document.getElementById("phone").value;
     var email = document.getElementById("email").value;
-    var service = document.getElementById("service").value;
+    var payment_method = document.getElementById("payment_method").value;
 
     var url = "https://wa.me/6596999444?text=" 
-    + "Tandem Location: " + tandem-location + "%0a"
+    + "Tandem Location: " + tandem_location + "%0a"
+    + "Booking Date: " + booking_date + "%0a"
+    + "Timeslot: " + timeslot + "%0a"
+    + "No. of Pax: " + num_pax + "%0a"
+    + "No. of Pax Above 90kg: " + num_pax_above_90 + "%0a"
     + "Name: " + name + "%0a"
-    + "Phone: " + phone + "%0a"
     + "Email: " + email  + "%0a"
-    + "Service: " + service; 
+    + "Payment Method: " + payment_method  + "%0a"
 
     window.open(url, '_blank').focus();
 }
