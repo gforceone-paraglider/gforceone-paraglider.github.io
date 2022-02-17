@@ -303,6 +303,73 @@ Payment Method* <span class="wpcf7-form-control-wrap payment-method"><select nam
 
 
 
+<div class="container">
+  <div class="columns">
+    <div class="column is-half">
+      <form action="https://api.staticforms.xyz/submit" method="post" id="staticform">
+        <!-- Replace with your StaticForms accessKey -->
+        <input type="hidden" name="accessKey" value="6bd54fec-d225-40b3-a7ea-fba37134df54">
+        <input type="hidden" name="subject" value="Test from jsfiddle">
+        <!-- Replace with the url you want to redirect to -->
+        <input type="hidden" name="redirectTo" value="https://www.google.com">
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control">
+            <input class="input" type="text" name="name" placeholder="Enter Your Name" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <input class="input" type="email" name="email" placeholder="Enter Your Email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Message</label>
+          <div class="control">
+            <textarea class="textarea" name="message" placeholder="Enter Your Message" required></textarea>
+          </div>
+        </div>
+
+          <div class="control">
+            <input class="input" type="text" name="phone" placeholder="Enter Your Phone" required>
+          </div>
+        </div>
+
+
+                  <div class="form-group">
+                    <select class="form-control" id="$tandem_location" name="$tandem_location">
+                      <option value="">Where would you like to fly tandem? *</option>
+                      <option value="KK View (rm280/pax)">KK View (rm280/pax)</option>
+                      <option value="Kokol (rm350/pax)">Kokol (rm350/pax)</option>
+                      <option value="Ranau (rm250/pax)">Ranau (rm250/pax)</option>
+                      <option value="Bukit X (rm280/pax)">Bukit X (rm280/pax)</option>
+                      <option value="Mount Kinabalu (rm2800/pax)">Mount Kinabalu (rm2800/pax)</option>
+                    </select>
+                  </div>
+
+
+                  <div class="form-group">
+                    <input
+                      type="date"
+                      name="$booking_date"
+                      id="$booking_date"
+                      class="form-control"
+                      placeholder=""
+                      value=""
+                      required=""
+                    />
+                  </div>
+
+
+
+
+
+        <button class="button is-primary" type="Submit" onclick="gotowhatsapp()">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
 
 
 
@@ -357,7 +424,7 @@ Payment Method* <span class="wpcf7-form-control-wrap payment-method"><select nam
 
                   <div class="form-group">
                     <select class="form-control" id="timeslot">
-                      <option value="">What timeslot would you prefer? *</option>
+                      <option value="">Preferred timeslot? *</option>
                       <option value="10:00AM">10:00AM</option>
                       <option value="11:00AM">11:00AM</option>
                       <option value="12:00PM">12:00PM</option>
@@ -393,7 +460,7 @@ Payment Method* <span class="wpcf7-form-control-wrap payment-method"><select nam
                       name="No. of Pax Above 90kg"
                       id="num_pax_above_90"
                       class="form-control"
-                      placeholder="How many Pax are Above 90kg Max 115kg (add rm50/pax) *"
+                      placeholder="No. of Pax >90kg (add rm50/pax) *"
                       value=""
                       required=""
                       min="0"
@@ -465,8 +532,8 @@ Payment Method* <span class="wpcf7-form-control-wrap payment-method"><select nam
 <script>
 function gotowhatsapp() {
 
-    var tandem_location = document.getElementById("tandem_location").value;
-    var booking_date = document.getElementById("booking_date").value;
+    var tandem_location = document.getElementById("$tandem_location").value;
+    var booking_date = document.getElementById("$booking_date").value;
     var timeslot = document.getElementById("timeslot").value;
     var num_pax = document.getElementById("num_pax").value;
     var num_pax_above_90 = document.getElementById("num_pax_above_90").value;
@@ -475,6 +542,8 @@ function gotowhatsapp() {
     var payment_method = document.getElementById("payment_method").value;
 
     var url = "https://wa.me/6596999444?text=" 
+    + "Hi FlyBah! I would like to make a Tandem Booking %0a"
+    + "Malaysian Citizen: Yes%0a"
     + "Tandem Location: " + tandem_location + "%0a"
     + "Booking Date: " + booking_date + "%0a"
     + "Timeslot: " + timeslot + "%0a"
