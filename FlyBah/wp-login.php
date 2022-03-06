@@ -102,7 +102,7 @@ var _wpUtilSettings = {"ajax":{"url":"\/FlyBah\/wp-admin\/admin-ajax.php"}};
 </script>
 <script src="./wp-includes/js/wp-util.min.js?ver=5.9.1" id="wp-util-js"></script>
 <script id="user-profile-js-extra">
-var userProfileL10n = {"user_id":"0","nonce":"4a5d5e95fc"};
+var userProfileL10n = {"user_id":"0","nonce":"03cce8a098"};
 </script>
 <script id="user-profile-js-translations">
 ( function( domain, translations ) {
